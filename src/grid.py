@@ -154,7 +154,7 @@ class Grid():
         SubstrateRatios = SubstrateRatios.fillna(0) # NOTE:ensure NA(b/c of 0/0 in df) = 0
         
         # Arrhenius equation for Vmax and Km multiplied by exponential decay for Psi sensitivity
-        Vmax = Arrhenius(self.Vmax0, self.Ea,    self.temp[day]) * Allison(0.05, self.wp_fc, self.psi[day])  # Vmax: (enz*gridsize) * sub
+        Vmax = Arrhenius(self.Vmax0, self.Ea,    self.temp[day]) * Allison(0.25, self.wp_fc, self.psi[day])  # Vmax: (enz*gridsize) * sub
         Km   = Arrhenius(self.Km0,   self.Km_Ea, self.temp[day])                                             # Km:   (sub*gridsize) * enz
 
         # Multiply Vmax by enzyme concentration
@@ -231,7 +231,7 @@ class Grid():
 
         # Start calculating monomer uptake
         # Caculate uptake enzyme kinetic parameters, multiplied by moisture multiplier accounting for the diffusivity implications
-        Uptake_Vmax = Arrhenius(self.Uptake_Vmax0, self.Uptake_Ea, self.temp[day]) * Allison(0.1, self.wp_fc, self.psi[day])
+        Uptake_Vmax = Arrhenius(self.Uptake_Vmax0, self.Uptake_Ea, self.temp[day]) * Allison(0.5, self.wp_fc, self.psi[day])
         Uptake_Km   = Arrhenius(self.Uptake_Km0,   self.Km_Ea,     self.temp[day])
 
         # Equation for hypothetical potential uptake (per unit of compatible uptake protein)

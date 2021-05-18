@@ -131,7 +131,7 @@ def monomer_leaching(Psi):
 
     # Constants
     Leaching        = np.float32(0.1)  # Abiotic monomer loss rate
-    Psi_slope_leach = np.float32(0.1)  # Mositure sensivity of abiotic monomer loss rate
+    Psi_slope_leach = np.float32(0.5)  # Mositure sensivity of abiotic monomer loss rate
 
     rate = Leaching * np.exp(Psi_slope_leach * Psi)
 
